@@ -5,6 +5,7 @@ const botaoAdicionarInicio = document.getElementById("adicionarInicio")
 const botaoAdicionarFinal = document.getElementById("adicionarFinal")
 const botaoRemoverInicio = document.getElementById("removerInicio")
 const botaoRemoverFinal = document.getElementById("removerFinal")
+let paragrafo = document.getElementById("paragrafo")
 const botaoMostrarNomes = document.getElementById("mostrarMais5Letras")
 
 function renderizar(){
@@ -13,14 +14,16 @@ function renderizar(){
         const lista_pagina = document.getElementById("lista")
         elemento.innerText = item
         lista_pagina.appendChild(elemento)
+        contarletras()
     }
 }
 
 function contarletras(){
+    let controle = 0
     for(let item of lista_nomes){
         if(item.length > 5){
-        let elemento = document.createElement('li')
-        elemento.innerText = `Existem ${lista_nomes.length} nomes com mais de 5 letras`
+            controle++
+            paragrafo.innerText = `Nomes com mais de 5 letras: ${controle}`
         }
     }
 }
